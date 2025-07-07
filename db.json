@@ -166,6 +166,8 @@
       "id": "1",
       "emergency_type": "incendio",
       "status": "finalizada",
+      "departamento": "Santander",
+      "municipio": "Bucaramanga",
       "reporter": {
         "name": "juan carlos pérez",
         "id_number": "12345678",
@@ -183,6 +185,8 @@
       "id": "2",
       "emergency_type": "ambulancia",
       "status": "asignada",
+      "departamento": "Santander",
+      "municipio": "Floridablanca",
       "reporter": {
         "name": "ana maría rodríguez",
         "id_number": "87654321",
@@ -200,6 +204,8 @@
       "id": "3",
       "emergency_type": "incendio",
       "status": "reportada",
+      "departamento": "Santander",
+      "municipio": "Girón",
       "reporter": {
         "name": "pedro josé silva",
         "id_number": "11223344",
@@ -217,6 +223,8 @@
       "id": "4",
       "emergency_type": "apoyo",
       "status": "apoyo",
+      "departamento": "Santander",
+      "municipio": "Bucaramanga",
       "reporter": {
         "name": "luisa fernanda castro",
         "id_number": "55667788",
@@ -234,6 +242,8 @@
       "id": "5",
       "emergency_type": "incendio",
       "status": "finalizada",
+      "departamento": "Santander",
+      "municipio": "Bucaramanga",
       "reporter": {
         "name": "roberto antonio mendoza",
         "id_number": "99887766",
@@ -251,6 +261,8 @@
       "id": "6",
       "emergency_type": "ambulancia",
       "status": "asignada",
+      "departamento": "Santander",
+      "municipio": "Bucaramanga",
       "reporter": {
         "name": "carmen elena vargas",
         "id_number": "44332211",
