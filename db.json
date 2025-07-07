@@ -1,0 +1,268 @@
+{
+  "hydrants": [
+    {
+      "id": 1,
+      "name": "Hidrante Parque Santander",
+      "position": [7.119349, -73.122742],
+      "description": "Hidrante ubicado en el Parque Santander, centro de Bucaramanga.",
+      "status": "Activo",
+      "municipio": "Bucaramanga"
+    },
+    {
+      "id": 2,
+      "name": "Hidrante Estadio Alfonso López",
+      "position": [7.106401, -73.119796],
+      "description": "Hidrante en las inmediaciones del Estadio Alfonso López.",
+      "status": "Activo",
+      "municipio": "Bucaramanga"
+    },
+    {
+      "id": 3,
+      "name": "Hidrante Universidad Industrial de Santander",
+      "position": [7.137833, -73.118179],
+      "description": "Hidrante cerca de la entrada principal de la UIS.",
+      "status": "Dañado",
+      "municipio": "Bucaramanga"
+    },
+    {
+      "id": 4,
+      "name": "Hidrante Cabecera del Llano",
+      "position": [7.119808, -73.107449],
+      "description": "Hidrante en la zona comercial de Cabecera del Llano.",
+      "status": "Dañado",
+      "municipio": "Bucaramanga"
+    },
+    {
+      "id": 5,
+      "name": "Hidrante Barrio La Concordia",
+      "position": [7.082331, -73.127468],
+      "description": "Hidrante en el sector residencial de La Concordia.",
+      "status": "Con reserva",
+      "municipio": "Bucaramanga"
+    },
+    {
+      "id": 6,
+      "name": "Hidrante Cañaveral",
+      "position": [7.072205, -73.110641],
+      "description": "Hidrante en el sector Cañaveral, cerca del centro comercial.",
+      "status": "Activo",
+      "municipio": "Floridablanca"
+    },
+    {
+      "id": 7,
+      "name": "Hidrante Barrio Provenza",
+      "position": [7.0922, -73.1227],
+      "description": "Hidrante en el barrio Provenza, al sur de la ciudad.",
+      "status": "En arreglo",
+      "municipio": "Bucaramanga"
+    },
+    {
+      "id": 8,
+      "name": "Hidrante Parque Simón Bolívar",
+      "position": [4.6584, -74.0935],
+      "description": "Hidrante ubicado en el Parque Metropolitano Simón Bolívar, Bogotá.",
+      "status": "Activo",
+      "municipio": "Bogotá"
+    },
+    {
+      "id": 9,
+      "name": "Hidrante Avenida Chile",
+      "position": [4.65295, -74.06396],
+      "description": "Hidrante en la esquina de Av. Chile con Carrera 7ma, Bogotá.",
+      "status": "En arreglo",
+      "municipio": "Bogotá"
+    },
+    {
+      "id": 10,
+      "name": "Hidrante Barrio Cedritos",
+      "position": [4.7154, -74.0428],
+      "description": "Hidrante en el parque principal de Cedritos, Bogotá.",
+      "status": "Activo",
+      "municipio": "Bogotá"
+    },
+    {
+      "id": 11,
+      "name": "Hidrante Parque Lleras",
+      "position": [6.2097, -75.5676],
+      "description": "Hidrante en la zona rosa del Parque Lleras, El Poblado, Medellín.",
+      "status": "Dañado",
+      "municipio": "Medellín"
+    },
+    {
+      "id": 12,
+      "name": "Hidrante Estadio Atanasio Girardot",
+      "position": [6.2569, -75.5907],
+      "description": "Hidrante cerca del Estadio Atanasio Girardot, Medellín.",
+      "status": "Activo",
+      "municipio": "Medellín"
+    },
+    {
+      "id": 13,
+      "name": "Hidrante Jardín Botánico",
+      "position": [6.2713, -75.5639],
+      "description": "Hidrante junto al Jardín Botánico, Medellín.",
+      "status": "Con reserva",
+      "municipio": "Medellín"
+    },
+    {
+      "id": 14,
+      "name": "Hidrante Parque de los Gatos",
+      "position": [3.4534, -76.537],
+      "description": "Hidrante en el Parque de los Gatos, Cali.",
+      "status": "Activo",
+      "municipio": "Cali"
+    },
+    {
+      "id": 15,
+      "name": "Hidrante Terminal de Transportes",
+      "position": [3.4648, -76.4942],
+      "description": "Hidrante en la Terminal de Transportes, Cali.",
+      "status": "Dañado",
+      "municipio": "Cali"
+    },
+    {
+      "id": 16,
+      "name": "Hidrante Barrio San Antonio",
+      "position": [3.4464, -76.5502],
+      "description": "Hidrante en el tradicional barrio San Antonio, Cali.",
+      "status": "En arreglo",
+      "municipio": "Cali"
+    },
+    {
+      "id": 17,
+      "name": "Hidrante Centro Histórico",
+      "position": [10.4237, -75.5479],
+      "description": "Hidrante en la Plaza de la Aduana, Centro Histórico de Cartagena.",
+      "status": "Activo",
+      "municipio": "Cartagena"
+    },
+    {
+      "id": 18,
+      "name": "Hidrante Bocagrande",
+      "position": [10.4002, -75.5511],
+      "description": "Hidrante en la Av. San Martín, sector Bocagrande, Cartagena.",
+      "status": "Con reserva",
+      "municipio": "Cartagena"
+    },
+    {
+      "id": 19,
+      "name": "Hidrante Malecón del Río",
+      "position": [10.9936, -74.7926],
+      "description": "Hidrante en el Malecón del Río, Barranquilla.",
+      "status": "Activo",
+      "municipio": "Barranquilla"
+    },
+    {
+      "id": 20,
+      "name": "Hidrante Estadio Metropolitano",
+      "position": [10.8898, -74.7817],
+      "description": "Hidrante en las inmediaciones del Estadio Metropolitano, Barranquilla.",
+      "status": "Dañado",
+      "municipio": "Barranquilla"
+    }
+  ],
+  "emergencies": [
+    {
+      "id": "1",
+      "emergency_type": "incendio",
+      "status": "finalizada",
+      "reporter": {
+        "name": "juan carlos pérez",
+        "id_number": "12345678",
+        "phone": "3001234567",
+        "description": "incendio en vivienda de 2 pisos en el centro de la ciudad"
+      },
+      "attention_date": "2024-06-07",
+      "attention_time": "14:30:00",
+      "address": "calle 15 #23-45, centro",
+      "form_number": "inc-2024-001",
+      "assigned_vehicle": "m-01",
+      "operator": "maría garcía"
+    },
+    {
+      "id": "2",
+      "emergency_type": "ambulancia",
+      "status": "asignada",
+      "reporter": {
+        "name": "ana maría rodríguez",
+        "id_number": "87654321",
+        "phone": "3007654321",
+        "description": "accidente de tránsito con heridos en la vía principal"
+      },
+      "attention_date": "2024-06-07",
+      "attention_time": "09:15:00",
+      "address": "carrera 8 #12-34, norte",
+      "form_number": "amb-2024-001",
+      "assigned_vehicle": "m-02",
+      "operator": "carlos lópez"
+    },
+    {
+      "id": "3",
+      "emergency_type": "incendio",
+      "status": "reportada",
+      "reporter": {
+        "name": "pedro josé silva",
+        "id_number": "11223344",
+        "phone": "3001122334",
+        "description": "incendio en comercio del sector comercial"
+      },
+      "attention_date": "2024-06-07",
+      "attention_time": "16:20:00",
+      "address": "calle 20 #45-67, centro",
+      "form_number": "inc-2024-002",
+      "assigned_vehicle": null,
+      "operator": "maría garcía"
+    },
+    {
+      "id": "4",
+      "emergency_type": "apoyo",
+      "status": "anulada",
+      "reporter": {
+        "name": "luisa fernanda castro",
+        "id_number": "55667788",
+        "phone": "3005566778",
+        "description": "apoyo en rescate de animal atrapado"
+      },
+      "attention_date": "2024-06-06",
+      "attention_time": "11:45:00",
+      "address": "carrera 15 #78-90, norte",
+      "form_number": "apo-2024-001",
+      "assigned_vehicle": null,
+      "operator": "carlos lópez"
+    },
+    {
+      "id": "5",
+      "emergency_type": "incendio",
+      "status": "finalizada",
+      "reporter": {
+        "name": "roberto antonio mendoza",
+        "id_number": "99887766",
+        "phone": "3009988776",
+        "description": "incendio forestal en zona rural"
+      },
+      "attention_date": "2024-06-07",
+      "attention_time": "08:00:00",
+      "address": "vereda la esperanza, zona rural",
+      "form_number": "inc-2024-003",
+      "assigned_vehicle": "m-03",
+      "operator": "maría garcía"
+    },
+    {
+      "id": "6",
+      "emergency_type": "ambulancia",
+      "status": "asignada",
+      "reporter": {
+        "name": "carmen elena vargas",
+        "id_number": "44332211",
+        "phone": "3004433221",
+        "description": "persona inconsciente en vía pública"
+      },
+      "attention_date": "2024-06-07",
+      "attention_time": "17:30:00",
+      "address": "parque central, centro",
+      "form_number": "amb-2024-002",
+      "assigned_vehicle": "m-02",
+      "operator": "carlos lópez"
+    }
+  ]
+}
