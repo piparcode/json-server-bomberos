@@ -276,5 +276,147 @@
       "assigned_vehicle": "m-02",
       "operator": "carlos lópez"
     }
+  ],
+  "departaments":[
+    {
+      "id": 1,
+      "name": "Santander",
+      "abbreviation": "SANT",
+      "isActive": false,
+      "code": "STD"
+    },
+    {
+      "id": 2,
+      "name": "Antioquia",
+      "abbreviation": "ANT",
+      "isActive": true,
+      "code": null
+    },
+    {
+      "id": 3,
+      "name": "Cundinamarca",
+      "abbreviation": null,
+      "isActive": true,
+      "code": "CUN"
+    },
+    {
+      "id": 4,
+      "name": "Valle del Cauca",
+      "abbreviation": "VDC",
+      "isActive": true,
+      "code": "VAL"
+    },
+    {
+      "id": 5,
+      "name": "Atlántico",
+      "abbreviation": null,
+      "isActive": true,
+      "code": "ATL"
+    },
+    {
+      "id": 6,
+      "name": "Bolívar",
+      "abbreviation": "BOL",
+      "isActive": false,
+      "code": null
+    },
+    {
+      "id": 7,
+      "name": "Boyacá",
+      "abbreviation": "BOY",
+      "isActive": true,
+      "code": "BOY"
+    },
+    {
+      "id": 8,
+      "name": "Caldas",
+      "abbreviation": null,
+      "isActive": true,
+      "code": "CAL"
+    },
+    {
+      "id": 9,
+      "name": "Caquetá",
+      "abbreviation": "CAQ",
+      "isActive": false,
+      "code": null
+    },
+    {
+      "id": 10,
+      "name": "Cauca",
+      "abbreviation": "CAU",
+      "isActive": true,
+      "code": "CAU"
+    },
+    {
+      "id": 11,
+      "name": "Cesar",
+      "abbreviation": null,
+      "isActive": false,
+      "code": "CES"
+    },
+    {
+      "id": 12,
+      "name": "Córdoba",
+      "abbreviation": "COR",
+      "isActive": true,
+      "code": null
+    },
+    {
+      "id": 13,
+      "name": "Huila",
+      "abbreviation": "HUI",
+      "isActive": true,
+      "code": "HUI"
+    },
+    {
+      "id": 14,
+      "name": "La Guajira",
+      "abbreviation": null,
+      "isActive": false,
+      "code": "GUA"
+    },
+    {
+      "id": 15,
+      "name": "Magdalena",
+      "abbreviation": "MAG",
+      "isActive": true,
+      "code": null
+    },
+    {
+      "id": 16,
+      "name": "Meta",
+      "abbreviation": "MET",
+      "isActive": true,
+      "code": "MET"
+    },
+    {
+      "id": 17,
+      "name": "Nariño",
+      "abbreviation": null,
+      "isActive": false,
+      "code": "NAR"
+    },
+    {
+      "id": 18,
+      "name": "Norte de Santander",
+      "abbreviation": "NST",
+      "isActive": true,
+      "code": null
+    },
+    {
+      "id": 19,
+      "name": "Quindío",
+      "abbreviation": "QUI",
+      "isActive": true,
+      "code": "QUI"
+    },
+    {
+      "id": 20,
+      "name": "Risaralda",
+      "abbreviation": null,
+      "isActive": false,
+      "code": "RIS"
+    }
   ]
 }

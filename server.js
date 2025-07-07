@@ -206,6 +206,84 @@ server.patch('/api/emergencies/:id', (req, res) => {
   });
 });
 
+// ==================== ENDPOINTS BÁSICOS PARA DEPARTAMENTS ====================
+
+// Obtener todos los departamentos
+server.get('/api/departaments', (req, res) => {
+  const db = router.db;
+  const departaments = db.get('departaments').value();
+  res.json({
+    success: true,
+    data: departaments,
+    total: departaments.length,
+    message: 'Departamentos obtenidos exitosamente'
+  });
+});
+
+// Obtener departamento por ID
+server.get('/api/departaments/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const departament = db.get('departaments').find({ id }).value();
+  if (!departament) {
+    return res.status(404).json({
+      success: false,
+      message: 'Departamento no encontrado'
+    });
+  }
+  res.json({
+    success: true,
+    data: departament,
+    message: 'Departamento encontrado'
+  });
+});
+
+// Actualizar departamento completo (PUT)
+server.put('/api/departaments/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const departament = db.get('departaments').find({ id }).value();
+  if (!departament) {
+    return res.status(404).json({
+      success: false,
+      message: 'Departamento no encontrado'
+    });
+  }
+  const updatedDepartament = db.get('departaments')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedDepartament,
+    message: 'Departamento actualizado exitosamente'
+  });
+});
+
+// Editar departamento parcialmente (PATCH)
+server.patch('/api/departaments/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const departament = db.get('departaments').find({ id }).value();
+  if (!departament) {
+    return res.status(404).json({
+      success: false,
+      message: 'Departamento no encontrado'
+    });
+  }
+  const updatedDepartament = db.get('departaments')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedDepartament,
+    message: 'Departamento editado exitosamente'
+  });
+});
+
 // Endpoint de información de la API
 server.get('/api/info', (req, res) => {
   res.json({
@@ -222,7 +300,11 @@ server.get('/api/info', (req, res) => {
         'GET /api/emergencies - Obtener todas las emergencias',
         'GET /api/emergencies/:id - Obtener emergencia por ID',
         'PUT /api/emergencies/:id - Actualizar emergencia completa',
-        'PATCH /api/emergencies/:id - Editar emergencia parcialmente'
+        'PATCH /api/emergencies/:id - Editar emergencia parcialmente',
+        'GET /api/departaments - Obtener todos los departamentos',
+        'GET /api/departaments/:id - Obtener departamento por ID',
+        'PUT /api/departaments/:id - Actualizar departamento completo',
+        'PATCH /api/departaments/:id - Editar departamento parcialmente'
       ]
     },
     message: 'API funcionando correctamente'
@@ -260,6 +342,12 @@ server.listen(PORT, () => {
   console.log(`   GET    http://localhost:${PORT}/api/emergencies/:id`);
   console.log(`   PUT    http://localhost:${PORT}/api/emergencies/:id`);
   console.log(`   PATCH  http://localhost:${PORT}/api/emergencies/:id`);
+  console.log('');
+  console.log('🏢 Endpoints de Departamentos:');
+  console.log(`   GET    http://localhost:${PORT}/api/departaments`);
+  console.log(`   GET    http://localhost:${PORT}/api/departaments/:id`);
+  console.log(`   PUT    http://localhost:${PORT}/api/departaments/:id`);
+  console.log(`   PATCH  http://localhost:${PORT}/api/departaments/:id`);
   console.log('');
   console.log('📖 Documentación: http://localhost:' + PORT + '/api/info');
   console.log('🔥 Presiona Ctrl+C para detener el servidor');
