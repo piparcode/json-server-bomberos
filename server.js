@@ -284,6 +284,25 @@ server.patch('/api/departaments/:id', (req, res) => {
   });
 });
 
+// ==================== ENDPOINT PARA EMERGENCY (OBJETO ÚNICO) ====================
+
+// Obtener el objeto emergency único
+server.get('/api/emergency', (req, res) => {
+  const db = router.db;
+  const emergency = db.get('emergency').value();
+  if (!emergency) {
+    return res.status(404).json({
+      success: false,
+      message: 'Objeto emergency no encontrado'
+    });
+  }
+  res.json({
+    success: true,
+    data: emergency,
+    message: 'Objeto emergency obtenido exitosamente'
+  });
+});
+
 // Endpoint de información de la API
 server.get('/api/info', (req, res) => {
   res.json({
@@ -304,7 +323,8 @@ server.get('/api/info', (req, res) => {
         'GET /api/departaments - Obtener todos los departamentos',
         'GET /api/departaments/:id - Obtener departamento por ID',
         'PUT /api/departaments/:id - Actualizar departamento completo',
-        'PATCH /api/departaments/:id - Editar departamento parcialmente'
+        'PATCH /api/departaments/:id - Editar departamento parcialmente',
+        'GET /api/emergency - Obtener objeto emergency único'
       ]
     },
     message: 'API funcionando correctamente'
