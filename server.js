@@ -284,6 +284,84 @@ server.patch('/api/departaments/:id', (req, res) => {
   });
 });
 
+// ==================== ENDPOINTS BÁSICOS PARA MUNICIPALITIES ====================
+
+// Obtener todos los municipios
+server.get('/api/municipalities', (req, res) => {
+  const db = router.db;
+  const municipalities = db.get('municipalities').value();
+  res.json({
+    success: true,
+    data: municipalities,
+    total: municipalities.length,
+    message: 'Municipios obtenidos exitosamente'
+  });
+});
+
+// Obtener municipio por ID
+server.get('/api/municipalities/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const municipality = db.get('municipalities').find({ id }).value();
+  if (!municipality) {
+    return res.status(404).json({
+      success: false,
+      message: 'Municipio no encontrado'
+    });
+  }
+  res.json({
+    success: true,
+    data: municipality,
+    message: 'Municipio encontrado'
+  });
+});
+
+// Actualizar municipio completo (PUT)
+server.put('/api/municipalities/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const municipality = db.get('municipalities').find({ id }).value();
+  if (!municipality) {
+    return res.status(404).json({
+      success: false,
+      message: 'Municipio no encontrado'
+    });
+  }
+  const updatedMunicipality = db.get('municipalities')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedMunicipality,
+    message: 'Municipio actualizado exitosamente'
+  });
+});
+
+// Editar municipio parcialmente (PATCH)
+server.patch('/api/municipalities/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const municipality = db.get('municipalities').find({ id }).value();
+  if (!municipality) {
+    return res.status(404).json({
+      success: false,
+      message: 'Municipio no encontrado'
+    });
+  }
+  const updatedMunicipality = db.get('municipalities')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedMunicipality,
+    message: 'Municipio editado exitosamente'
+  });
+});
+
 // ==================== ENDPOINT PARA EMERGENCY (OBJETO ÚNICO) ====================
 
 // Obtener el objeto emergency único
@@ -324,7 +402,11 @@ server.get('/api/info', (req, res) => {
         'GET /api/departaments/:id - Obtener departamento por ID',
         'PUT /api/departaments/:id - Actualizar departamento completo',
         'PATCH /api/departaments/:id - Editar departamento parcialmente',
-        'GET /api/emergency - Obtener objeto emergency único'
+        'GET /api/emergency - Obtener objeto emergency único',
+        'GET /api/municipalities - Obtener todos los municipios',
+        'GET /api/municipalities/:id - Obtener municipio por ID',
+        'PUT /api/municipalities/:id - Actualizar municipio completo',
+        'PATCH /api/municipalities/:id - Editar municipio parcialmente'
       ]
     },
     message: 'API funcionando correctamente'
@@ -368,6 +450,12 @@ server.listen(PORT, () => {
   console.log(`   GET    http://localhost:${PORT}/api/departaments/:id`);
   console.log(`   PUT    http://localhost:${PORT}/api/departaments/:id`);
   console.log(`   PATCH  http://localhost:${PORT}/api/departaments/:id`);
+  console.log('');
+  console.log('📍 Endpoints de Municipios:');
+  console.log(`   GET    http://localhost:${PORT}/api/municipalities`);
+  console.log(`   GET    http://localhost:${PORT}/api/municipalities/:id`);
+  console.log(`   PUT    http://localhost:${PORT}/api/municipalities/:id`);
+  console.log(`   PATCH  http://localhost:${PORT}/api/municipalities/:id`);
   console.log('');
   console.log('📖 Documentación: http://localhost:' + PORT + '/api/info');
   console.log('🔥 Presiona Ctrl+C para detener el servidor');

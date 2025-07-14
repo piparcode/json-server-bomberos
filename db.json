@@ -795,5 +795,117 @@
                 ]
             }
         ]
-    }
+  },
+  "municipalities": [
+      {
+        "id": 1,
+        "name": "Bucaramanga",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": "BGA",
+        "code": "68001",
+        "isActive": true
+      },
+      {
+        "id": 2,
+        "name": "Floridablanca",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": "FLO",
+        "code": "68276",
+        "isActive": false
+      },
+      {
+        "id": 3,
+        "name": "Girón",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": null,
+        "code": null,
+        "isActive": true
+      },
+      {
+        "id": 4,
+        "name": "Piedecuesta",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": "PIE",
+        "code": "68547",
+        "isActive": false
+      },
+      {
+        "id": 5,
+        "name": "Barrancabermeja",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": null,
+        "code": null,
+        "isActive": true
+      },
+      {
+        "id": 6,
+        "name": "San Gil",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": "SGL",
+        "code": "68679",
+        "isActive": false
+      },
+      {
+        "id": 7,
+        "name": "Socorro",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": null,
+        "code": null,
+        "isActive": true
+      },
+      {
+        "id": 8,
+        "name": "Barbosa",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": "BAR",
+        "code": "68077",
+        "isActive": false
+      },
+      {
+        "id": 9,
+        "name": "Málaga",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": null,
+        "code": null,
+        "isActive": true
+      },
+      {
+        "id": 10,
+        "name": "Vélez",
+        "departament": {
+          "id": 1,
+          "name": "Santander"
+        },
+        "abbreviation": "VEL",
+        "code": "68895",
+        "isActive": false
+      }
+    ]
 }
