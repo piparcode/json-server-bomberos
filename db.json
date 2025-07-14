@@ -907,5 +907,147 @@
         "code": "68895",
         "isActive": false
       }
-    ]
+  ],
+  "unitTerritorials": [
+      {
+        "id": 1,
+        "name": "Unidad Norte Chihuahua",
+        "description": "Cobertura en la zona norte del estado de Chihuahua.",
+        "territorialUnitType": {
+          "id": 1,
+          "name": "Delegación"
+        },
+        "sector": {
+          "id": 3,
+          "name": "Sector Agropecuario"
+        },
+        "isActive": true
+      },
+      {
+        "id": 2,
+        "name": "Unidad Sur Yucatán",
+        "description": null,
+        "territorialUnitType": {
+          "id": 2,
+          "name": "Coordinación"
+        },
+        "sector": {
+          "id": 2,
+          "name": "Sector Turismo"
+        },
+        "isActive": true
+      },
+      {
+        "id": 3,
+        "name": "Unidad Oriente CDMX",
+        "description": "Atención a zonas urbanas y rurales.",
+        "territorialUnitType": {
+          "id": 1,
+          "name": "Delegación"
+        },
+        "sector": {
+          "id": 4,
+          "name": "Sector Industrial"
+        },
+        "isActive": true
+      },
+      {
+        "id": 4,
+        "name": "Unidad Occidente Jalisco",
+        "description": "Zona metropolitana de Guadalajara.",
+        "territorialUnitType": {
+          "id": 3,
+          "name": "Gerencia"
+        },
+        "sector": {
+          "id": 1,
+          "name": "Sector Salud"
+        },
+        "isActive": true
+      },
+      {
+        "id": 5,
+        "name": "Unidad Centro Querétaro",
+        "description": null,
+        "territorialUnitType": {
+          "id": 2,
+          "name": "Coordinación"
+        },
+        "sector": {
+          "id": 5,
+          "name": "Sector Educación"
+        },
+        "isActive": false
+      },
+      {
+        "id": 6,
+        "name": "Unidad Altiplano SLP",
+        "description": "Cobertura regional en San Luis Potosí.",
+        "territorialUnitType": {
+          "id": 1,
+          "name": "Delegación"
+        },
+        "sector": {
+          "id": 2,
+          "name": "Sector Turismo"
+        },
+        "isActive": true
+      },
+      {
+        "id": 7,
+        "name": "Unidad Bajío Guanajuato",
+        "description": "Supervisión de actividades agrícolas.",
+        "territorialUnitType": {
+          "id": 3,
+          "name": "Gerencia"
+        },
+        "sector": {
+          "id": 3,
+          "name": "Sector Agropecuario"
+        },
+        "isActive": true
+      },
+      {
+        "id": 8,
+        "name": "Unidad Región Lagunera",
+        "description": null,
+        "territorialUnitType": {
+          "id": 2,
+          "name": "Coordinación"
+        },
+        "sector": {
+          "id": 4,
+          "name": "Sector Industrial"
+        },
+        "isActive": false
+      },
+      {
+        "id": 9,
+        "name": "Unidad Sierra Oaxaca",
+        "description": "Enfoque en desarrollo social y cultural.",
+        "territorialUnitType": {
+          "id": 1,
+          "name": "Delegación"
+        },
+        "sector": {
+          "id": 5,
+          "name": "Sector Educación"
+        },
+        "isActive": true
+      },
+      {
+        "id": 10,
+        "name": "Unidad Golfo Veracruz",
+        "description": null,
+        "territorialUnitType": {
+          "id": 3,
+          "name": "Gerencia"
+        },
+        "sector": {
+          "id": 1,
+          "name": "Sector Salud"
+        },
+        "isActive": true
+      }
+  ]
 }

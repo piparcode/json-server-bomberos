@@ -381,6 +381,84 @@ server.get('/api/emergency', (req, res) => {
   });
 });
 
+// ==================== ENDPOINTS BÁSICOS PARA UNITTERRITORIALS ====================
+
+// Obtener todas las unidades territoriales
+server.get('/api/unitTerritorials', (req, res) => {
+  const db = router.db;
+  const unitTerritorials = db.get('unitTerritorials').value();
+  res.json({
+    success: true,
+    data: unitTerritorials,
+    total: unitTerritorials.length,
+    message: 'Unidades territoriales obtenidas exitosamente'
+  });
+});
+
+// Obtener unidad territorial por ID
+server.get('/api/unitTerritorials/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const unitTerritorial = db.get('unitTerritorials').find({ id }).value();
+  if (!unitTerritorial) {
+    return res.status(404).json({
+      success: false,
+      message: 'Unidad territorial no encontrada'
+    });
+  }
+  res.json({
+    success: true,
+    data: unitTerritorial,
+    message: 'Unidad territorial encontrada'
+  });
+});
+
+// Actualizar unidad territorial completa (PUT)
+server.put('/api/unitTerritorials/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const unitTerritorial = db.get('unitTerritorials').find({ id }).value();
+  if (!unitTerritorial) {
+    return res.status(404).json({
+      success: false,
+      message: 'Unidad territorial no encontrada'
+    });
+  }
+  const updatedUnitTerritorial = db.get('unitTerritorials')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedUnitTerritorial,
+    message: 'Unidad territorial actualizada exitosamente'
+  });
+});
+
+// Editar unidad territorial parcialmente (PATCH)
+server.patch('/api/unitTerritorials/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const unitTerritorial = db.get('unitTerritorials').find({ id }).value();
+  if (!unitTerritorial) {
+    return res.status(404).json({
+      success: false,
+      message: 'Unidad territorial no encontrada'
+    });
+  }
+  const updatedUnitTerritorial = db.get('unitTerritorials')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedUnitTerritorial,
+    message: 'Unidad territorial editada exitosamente'
+  });
+});
+
 // Endpoint de información de la API
 server.get('/api/info', (req, res) => {
   res.json({
@@ -406,7 +484,11 @@ server.get('/api/info', (req, res) => {
         'GET /api/municipalities - Obtener todos los municipios',
         'GET /api/municipalities/:id - Obtener municipio por ID',
         'PUT /api/municipalities/:id - Actualizar municipio completo',
-        'PATCH /api/municipalities/:id - Editar municipio parcialmente'
+        'PATCH /api/municipalities/:id - Editar municipio parcialmente',
+        'GET /api/unitTerritorials - Obtener todas las unidades territoriales',
+        'GET /api/unitTerritorials/:id - Obtener unidad territorial por ID',
+        'PUT /api/unitTerritorials/:id - Actualizar unidad territorial completa',
+        'PATCH /api/unitTerritorials/:id - Editar unidad territorial parcialmente'
       ]
     },
     message: 'API funcionando correctamente'
@@ -456,6 +538,12 @@ server.listen(PORT, () => {
   console.log(`   GET    http://localhost:${PORT}/api/municipalities/:id`);
   console.log(`   PUT    http://localhost:${PORT}/api/municipalities/:id`);
   console.log(`   PATCH  http://localhost:${PORT}/api/municipalities/:id`);
+  console.log('');
+  console.log('📍 Endpoints de Unidades Territoriales:');
+  console.log(`   GET    http://localhost:${PORT}/api/unitTerritorials`);
+  console.log(`   GET    http://localhost:${PORT}/api/unitTerritorials/:id`);
+  console.log(`   PUT    http://localhost:${PORT}/api/unitTerritorials/:id`);
+  console.log(`   PATCH  http://localhost:${PORT}/api/unitTerritorials/:id`);
   console.log('');
   console.log('📖 Documentación: http://localhost:' + PORT + '/api/info');
   console.log('🔥 Presiona Ctrl+C para detener el servidor');
