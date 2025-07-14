@@ -466,7 +466,7 @@
                             {
                                 "id": 3,
                                 "name": "Comuna",
-                                "type": "id",
+                                "type": "select",
                                 "answer": 2,
                                 "options": [
                                     {
@@ -487,7 +487,7 @@
                             {
                                 "id": 4,
                                 "name": "Tipo de emergencia",
-                                "type": "id",
+                                "type": "select",
                                 "answer": 2,
                                 "options": [
                                     {
@@ -544,7 +544,7 @@
                             {
                                 "id": 11,
                                 "name": "Cantidad de agua utilizada",
-                                "type": "decimal",
+                                "type": "number",
                                 "answer": 180.5
                             },
                             {
@@ -556,13 +556,13 @@
                             {
                                 "id": 13,
                                 "name": "Factura AMB",
-                                "type": "varchar",
+                                "type": "text",
                                 "answer": "AMB-98765"
                             },
                             {
                                 "id": 14,
                                 "name": "Vehículo utilizado",
-                                "type": "id",
+                                "type": "select",
                                 "answer": 3,
                                 "options": [
                                     {
@@ -583,7 +583,7 @@
                             {
                                 "id": 15,
                                 "name": "Unidades bomberiles",
-                                "type": "ids",
+                                "type": "select",
                                 "answer": [
                                     1,
                                     4
@@ -635,7 +635,7 @@
                             {
                                 "id": 20,
                                 "name": "Oficial de servicio",
-                                "type": "id",
+                                "type": "select",
                                 "answer": 1,
                                 "options": [
                                     {
@@ -652,7 +652,7 @@
                             {
                                 "id": 21,
                                 "name": "Líder de operaciones",
-                                "type": "id",
+                                "type": "select",
                                 "answer": 2,
                                 "options": [
                                     {
@@ -715,7 +715,7 @@
                             {
                                 "id": 3,
                                 "name": "Teléfono",
-                                "type": "varchar",
+                                "type": "text",
                                 "answer": "3021123344"
                             },
                             {
@@ -739,7 +739,7 @@
                             {
                                 "id": 7,
                                 "name": "Escala o magnitud",
-                                "type": "decimal",
+                                "type": "number",
                                 "answer": 6.8
                             },
                             {
@@ -757,19 +757,19 @@
                             {
                                 "id": 10,
                                 "name": "Desaparecidos",
-                                "type": "int",
+                                "type": "number",
                                 "answer": 2
                             },
                             {
                                 "id": 11,
                                 "name": "Fallecidos",
-                                "type": "int",
+                                "type": "number",
                                 "answer": 1
                             },
                             {
                                 "id": 12,
                                 "name": "Evacuados",
-                                "type": "int",
+                                "type": "number",
                                 "answer": 10
                             }
                         ]
