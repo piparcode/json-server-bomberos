@@ -459,6 +459,318 @@ server.patch('/api/unitTerritorials/:id', (req, res) => {
   });
 });
 
+// ==================== ENDPOINTS BÁSICOS PARA UNITTYPES ====================
+
+// Obtener todos los tipos de unidad
+server.get('/api/unitTypes', (req, res) => {
+  const db = router.db;
+  const unitTypes = db.get('unitTypes').value();
+  res.json({
+    success: true,
+    data: unitTypes,
+    total: unitTypes.length,
+    message: 'Tipos de unidad obtenidos exitosamente'
+  });
+});
+
+// Obtener tipo de unidad por ID
+server.get('/api/unitTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const unitType = db.get('unitTypes').find({ id }).value();
+  if (!unitType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de unidad no encontrado'
+    });
+  }
+  res.json({
+    success: true,
+    data: unitType,
+    message: 'Tipo de unidad encontrado'
+  });
+});
+
+// Actualizar tipo de unidad completo (PUT)
+server.put('/api/unitTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const unitType = db.get('unitTypes').find({ id }).value();
+  if (!unitType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de unidad no encontrado'
+    });
+  }
+  const updatedUnitType = db.get('unitTypes')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedUnitType,
+    message: 'Tipo de unidad actualizado exitosamente'
+  });
+});
+
+// Editar tipo de unidad parcialmente (PATCH)
+server.patch('/api/unitTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const unitType = db.get('unitTypes').find({ id }).value();
+  if (!unitType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de unidad no encontrado'
+    });
+  }
+  const updatedUnitType = db.get('unitTypes')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedUnitType,
+    message: 'Tipo de unidad editado exitosamente'
+  });
+});
+
+// ==================== ENDPOINTS BÁSICOS PARA SECTORES ====================
+
+// Obtener todos los sectores
+server.get('/api/sectores', (req, res) => {
+  const db = router.db;
+  const sectores = db.get('sectores').value();
+  res.json({
+    success: true,
+    data: sectores,
+    total: sectores.length,
+    message: 'Sectores obtenidos exitosamente'
+  });
+});
+
+// Obtener sector por ID
+server.get('/api/sectores/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const sector = db.get('sectores').find({ id }).value();
+  if (!sector) {
+    return res.status(404).json({
+      success: false,
+      message: 'Sector no encontrado'
+    });
+  }
+  res.json({
+    success: true,
+    data: sector,
+    message: 'Sector encontrado'
+  });
+});
+
+// Actualizar sector completo (PUT)
+server.put('/api/sectores/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const sector = db.get('sectores').find({ id }).value();
+  if (!sector) {
+    return res.status(404).json({
+      success: false,
+      message: 'Sector no encontrado'
+    });
+  }
+  const updatedSector = db.get('sectores')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedSector,
+    message: 'Sector actualizado exitosamente'
+  });
+});
+
+// Editar sector parcialmente (PATCH)
+server.patch('/api/sectores/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const sector = db.get('sectores').find({ id }).value();
+  if (!sector) {
+    return res.status(404).json({
+      success: false,
+      message: 'Sector no encontrado'
+    });
+  }
+  const updatedSector = db.get('sectores')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedSector,
+    message: 'Sector editado exitosamente'
+  });
+});
+
+// ==================== ENDPOINTS BÁSICOS PARA SECTORTYPES ====================
+
+// Obtener todos los tipos de sector
+server.get('/api/sectorTypes', (req, res) => {
+  const db = router.db;
+  const sectorTypes = db.get('sectorTypes').value();
+  res.json({
+    success: true,
+    data: sectorTypes,
+    total: sectorTypes.length,
+    message: 'Tipos de sector obtenidos exitosamente'
+  });
+});
+
+// Obtener tipo de sector por ID
+server.get('/api/sectorTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const sectorType = db.get('sectorTypes').find({ id }).value();
+  if (!sectorType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de sector no encontrado'
+    });
+  }
+  res.json({
+    success: true,
+    data: sectorType,
+    message: 'Tipo de sector encontrado'
+  });
+});
+
+// Actualizar tipo de sector completo (PUT)
+server.put('/api/sectorTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const sectorType = db.get('sectorTypes').find({ id }).value();
+  if (!sectorType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de sector no encontrado'
+    });
+  }
+  const updatedSectorType = db.get('sectorTypes')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedSectorType,
+    message: 'Tipo de sector actualizado exitosamente'
+  });
+});
+
+// Editar tipo de sector parcialmente (PATCH)
+server.patch('/api/sectorTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const sectorType = db.get('sectorTypes').find({ id }).value();
+  if (!sectorType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de sector no encontrado'
+    });
+  }
+  const updatedSectorType = db.get('sectorTypes')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedSectorType,
+    message: 'Tipo de sector editado exitosamente'
+  });
+});
+
+// ==================== ENDPOINTS BÁSICOS PARA ZONETYPES ====================
+
+// Obtener todos los tipos de zona
+server.get('/api/zoneTypes', (req, res) => {
+  const db = router.db;
+  const zoneTypes = db.get('zoneTypes').value();
+  res.json({
+    success: true,
+    data: zoneTypes,
+    total: zoneTypes.length,
+    message: 'Tipos de zona obtenidos exitosamente'
+  });
+});
+
+// Obtener tipo de zona por ID
+server.get('/api/zoneTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const zoneType = db.get('zoneTypes').find({ id }).value();
+  if (!zoneType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de zona no encontrado'
+    });
+  }
+  res.json({
+    success: true,
+    data: zoneType,
+    message: 'Tipo de zona encontrado'
+  });
+});
+
+// Actualizar tipo de zona completo (PUT)
+server.put('/api/zoneTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const zoneType = db.get('zoneTypes').find({ id }).value();
+  if (!zoneType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de zona no encontrado'
+    });
+  }
+  const updatedZoneType = db.get('zoneTypes')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedZoneType,
+    message: 'Tipo de zona actualizado exitosamente'
+  });
+});
+
+// Editar tipo de zona parcialmente (PATCH)
+server.patch('/api/zoneTypes/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const zoneType = db.get('zoneTypes').find({ id }).value();
+  if (!zoneType) {
+    return res.status(404).json({
+      success: false,
+      message: 'Tipo de zona no encontrado'
+    });
+  }
+  const updatedZoneType = db.get('zoneTypes')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedZoneType,
+    message: 'Tipo de zona editado exitosamente'
+  });
+});
+
 // Endpoint de información de la API
 server.get('/api/info', (req, res) => {
   res.json({
@@ -488,7 +800,23 @@ server.get('/api/info', (req, res) => {
         'GET /api/unitTerritorials - Obtener todas las unidades territoriales',
         'GET /api/unitTerritorials/:id - Obtener unidad territorial por ID',
         'PUT /api/unitTerritorials/:id - Actualizar unidad territorial completa',
-        'PATCH /api/unitTerritorials/:id - Editar unidad territorial parcialmente'
+        'PATCH /api/unitTerritorials/:id - Editar unidad territorial parcialmente',
+        'GET /api/unitTypes - Obtener todos los tipos de unidad',
+        'GET /api/unitTypes/:id - Obtener tipo de unidad por ID',
+        'PUT /api/unitTypes/:id - Actualizar tipo de unidad completo',
+        'PATCH /api/unitTypes/:id - Editar tipo de unidad parcialmente',
+        'GET /api/sectores - Obtener todos los sectores',
+        'GET /api/sectores/:id - Obtener sector por ID',
+        'PUT /api/sectores/:id - Actualizar sector completo',
+        'PATCH /api/sectores/:id - Editar sector parcialmente',
+        'GET /api/sectorTypes - Obtener todos los tipos de sector',
+        'GET /api/sectorTypes/:id - Obtener tipo de sector por ID',
+        'PUT /api/sectorTypes/:id - Actualizar tipo de sector completo',
+        'PATCH /api/sectorTypes/:id - Editar tipo de sector parcialmente',
+        'GET /api/zoneTypes - Obtener todos los tipos de zona',
+        'GET /api/zoneTypes/:id - Obtener tipo de zona por ID',
+        'PUT /api/zoneTypes/:id - Actualizar tipo de zona completo',
+        'PATCH /api/zoneTypes/:id - Editar tipo de zona parcialmente'
       ]
     },
     message: 'API funcionando correctamente'
@@ -544,6 +872,30 @@ server.listen(PORT, () => {
   console.log(`   GET    http://localhost:${PORT}/api/unitTerritorials/:id`);
   console.log(`   PUT    http://localhost:${PORT}/api/unitTerritorials/:id`);
   console.log(`   PATCH  http://localhost:${PORT}/api/unitTerritorials/:id`);
+  console.log('');
+  console.log('📦 Endpoints de Tipos de Unidad:');
+  console.log(`   GET    http://localhost:${PORT}/api/unitTypes`);
+  console.log(`   GET    http://localhost:${PORT}/api/unitTypes/:id`);
+  console.log(`   PUT    http://localhost:${PORT}/api/unitTypes/:id`);
+  console.log(`   PATCH  http://localhost:${PORT}/api/unitTypes/:id`);
+  console.log('');
+  console.log('🏷️ Endpoints de Sectores:');
+  console.log(`   GET    http://localhost:${PORT}/api/sectores`);
+  console.log(`   GET    http://localhost:${PORT}/api/sectores/:id`);
+  console.log(`   PUT    http://localhost:${PORT}/api/sectores/:id`);
+  console.log(`   PATCH  http://localhost:${PORT}/api/sectores/:id`);
+  console.log('');
+  console.log('🏷️ Endpoints de Tipos de Sector:');
+  console.log(`   GET    http://localhost:${PORT}/api/sectorTypes`);
+  console.log(`   GET    http://localhost:${PORT}/api/sectorTypes/:id`);
+  console.log(`   PUT    http://localhost:${PORT}/api/sectorTypes/:id`);
+  console.log(`   PATCH  http://localhost:${PORT}/api/sectorTypes/:id`);
+  console.log('');
+  console.log('🗺️ Endpoints de Tipos de Zona:');
+  console.log(`   GET    http://localhost:${PORT}/api/zoneTypes`);
+  console.log(`   GET    http://localhost:${PORT}/api/zoneTypes/:id`);
+  console.log(`   PUT    http://localhost:${PORT}/api/zoneTypes/:id`);
+  console.log(`   PATCH  http://localhost:${PORT}/api/zoneTypes/:id`);
   console.log('');
   console.log('📖 Documentación: http://localhost:' + PORT + '/api/info');
   console.log('🔥 Presiona Ctrl+C para detener el servidor');
