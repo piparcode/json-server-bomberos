@@ -208,6 +208,84 @@ server.patch('/api/emergencies/:id', (req, res) => {
 
 // ==================== ENDPOINTS BÁSICOS PARA DEPARTAMENTS ====================
 
+// ==================== ENDPOINTS BÁSICOS PARA REQUESTRSIK ====================
+
+// Obtener todas las solicitudes de riesgo
+server.get('/api/requestRsik', (req, res) => {
+  const db = router.db;
+  const requests = db.get('requestRsik').value();
+  res.json({
+    success: true,
+    data: requests,
+    total: requests.length,
+    message: 'Solicitudes de riesgo obtenidas exitosamente'
+  });
+});
+
+// Obtener solicitud de riesgo por ID
+server.get('/api/requestRsik/:id', (req, res) => {
+  const db = router.db;
+  const id = req.params.id;
+  const request = db.get('requestRsik').find({ id }).value();
+  if (!request) {
+    return res.status(404).json({
+      success: false,
+      message: 'Solicitud de riesgo no encontrada'
+    });
+  }
+  res.json({
+    success: true,
+    data: request,
+    message: 'Solicitud de riesgo encontrada'
+  });
+});
+
+// Actualizar solicitud de riesgo completa (PUT)
+server.put('/api/requestRsik/:id', (req, res) => {
+  const db = router.db;
+  const id = req.params.id;
+  const updates = req.body;
+  const request = db.get('requestRsik').find({ id }).value();
+  if (!request) {
+    return res.status(404).json({
+      success: false,
+      message: 'Solicitud de riesgo no encontrada'
+    });
+  }
+  const updatedRequest = db.get('requestRsik')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedRequest,
+    message: 'Solicitud de riesgo actualizada exitosamente'
+  });
+});
+
+// Editar solicitud de riesgo parcialmente (PATCH)
+server.patch('/api/requestRsik/:id', (req, res) => {
+  const db = router.db;
+  const id = req.params.id;
+  const updates = req.body;
+  const request = db.get('requestRsik').find({ id }).value();
+  if (!request) {
+    return res.status(404).json({
+      success: false,
+      message: 'Solicitud de riesgo no encontrada'
+    });
+  }
+  const updatedRequest = db.get('requestRsik')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedRequest,
+    message: 'Solicitud de riesgo editada exitosamente'
+  });
+});
+
 // Obtener todos los departamentos
 server.get('/api/departaments', (req, res) => {
   const db = router.db;

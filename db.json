@@ -1289,5 +1289,57 @@
       "isActive": false,
       "description": "Zona turística"
     }
+  ],
+  "requestRsik": [
+    {
+      "id": "3",
+      "type_request": "inspección de seguridad humana",
+      "module": "ingenieria",
+      "statusPay": "pago pendiente",
+      "date_request": "2024-06-10",
+      "client_id": "cbbf",
+      "legal_representative": "Juan Pérez",
+      "price": 150000
+    },
+    {
+      "id": "4",
+      "type_request": "revisión de sistemas contra incendios",
+      "module": "ambiental",
+      "statusPay": "pagado",
+      "date_request": "2024-07-01",
+      "client_id": "acme01",
+      "legal_representative": "María Gómez",
+      "price": 250000
+    },
+    {
+      "id": "5",
+      "type_request": "certificación de evacuación",
+      "module": "matpel",
+      "statusPay": "pago pendiente",
+      "date_request": "2024-07-10",
+      "client_id": "xyz123",
+      "legal_representative": "Carlos Ramírez",
+      "price": 180000
+    },
+    {
+      "id": "6",
+      "type_request": "inspección de instalaciones eléctricas",
+      "module": "ingenieria",
+      "statusPay": "pagado",
+      "date_request": "2024-07-12",
+      "client_id": "lmn456",
+      "legal_representative": "Ana Torres",
+      "price": 210000
+    },
+    {
+      "id": "7",
+      "type_request": "evaluación de riesgos químicos",
+      "module": "bomberos",
+      "statusPay": "pago pendiente",
+      "date_request": "2024-07-14",
+      "client_id": "qrs789",
+      "legal_representative": "Luis Herrera",
+      "price": 300000
+    }
   ]
 }
