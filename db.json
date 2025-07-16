@@ -1290,7 +1290,7 @@
       "description": "Zona turística"
     }
   ],
-  "requestRsik": [
+  "requestRisk": [
     {
       "id": "3",
       "type_request": "inspección de seguridad humana",

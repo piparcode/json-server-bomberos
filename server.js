@@ -208,12 +208,12 @@ server.patch('/api/emergencies/:id', (req, res) => {
 
 // ==================== ENDPOINTS BÁSICOS PARA DEPARTAMENTS ====================
 
-// ==================== ENDPOINTS BÁSICOS PARA REQUESTRSIK ====================
+// ==================== ENDPOINTS BÁSICOS PARA requestRisk ====================
 
 // Obtener todas las solicitudes de riesgo
-server.get('/api/requestRsik', (req, res) => {
+server.get('/api/requestRisk', (req, res) => {
   const db = router.db;
-  const requests = db.get('requestRsik').value();
+  const requests = db.get('requestRisk').value();
   res.json({
     success: true,
     data: requests,
@@ -223,10 +223,10 @@ server.get('/api/requestRsik', (req, res) => {
 });
 
 // Obtener solicitud de riesgo por ID
-server.get('/api/requestRsik/:id', (req, res) => {
+server.get('/api/requestRisk/:id', (req, res) => {
   const db = router.db;
   const id = req.params.id;
-  const request = db.get('requestRsik').find({ id }).value();
+  const request = db.get('requestRisk').find({ id }).value();
   if (!request) {
     return res.status(404).json({
       success: false,
@@ -241,18 +241,18 @@ server.get('/api/requestRsik/:id', (req, res) => {
 });
 
 // Actualizar solicitud de riesgo completa (PUT)
-server.put('/api/requestRsik/:id', (req, res) => {
+server.put('/api/requestRisk/:id', (req, res) => {
   const db = router.db;
   const id = req.params.id;
   const updates = req.body;
-  const request = db.get('requestRsik').find({ id }).value();
+  const request = db.get('requestRisk').find({ id }).value();
   if (!request) {
     return res.status(404).json({
       success: false,
       message: 'Solicitud de riesgo no encontrada'
     });
   }
-  const updatedRequest = db.get('requestRsik')
+  const updatedRequest = db.get('requestRisk')
     .find({ id })
     .assign(updates)
     .write();
@@ -264,18 +264,18 @@ server.put('/api/requestRsik/:id', (req, res) => {
 });
 
 // Editar solicitud de riesgo parcialmente (PATCH)
-server.patch('/api/requestRsik/:id', (req, res) => {
+server.patch('/api/requestRisk/:id', (req, res) => {
   const db = router.db;
   const id = req.params.id;
   const updates = req.body;
-  const request = db.get('requestRsik').find({ id }).value();
+  const request = db.get('requestRisk').find({ id }).value();
   if (!request) {
     return res.status(404).json({
       success: false,
       message: 'Solicitud de riesgo no encontrada'
     });
   }
-  const updatedRequest = db.get('requestRsik')
+  const updatedRequest = db.get('requestRisk')
     .find({ id })
     .assign(updates)
     .write();
