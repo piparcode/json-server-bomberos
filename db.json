@@ -1341,5 +1341,343 @@
       "legal_representative": "Luis Herrera",
       "price": 300000
     }
+  ],
+  "clientes": [
+    {
+      "id": "cbbf",
+      "name": "Bomberos Bucaramanga",
+      "legal_representative": "Juan Pérez",
+      "email": "bombero1@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "acme01",
+      "name": "ACME S.A.",
+      "legal_representative": "María Gómez",
+      "email": "maria.gomez@acme.com",
+      "password": "1234"
+    },
+    {
+      "id": "xyz123",
+      "name": "XYZ Ltda.",
+      "legal_representative": "Carlos Ramírez",
+      "email": "carlos.ramirez@xyz.com",
+      "password": "1234"
+    },
+    {
+      "id": "xyz123",
+      "name": "XYZ Ltda.",
+      "legal_representative": "Carlos Ramírez",
+      "email": "carlos.ramirez@xyz.com",
+      "password": "1234"
+    }
+  ],
+  "machines": [
+    {
+      "id": 1,
+      "name": "M-01",
+      "status": "pendiente",
+      "workOrders": [
+        {
+          "id": 1,
+          "name": "Liquido de frenos",
+          "typePart": "Frenos",
+          "description": "Revisar y cambiar el liquido de frenos si es necesario.",
+          "typeMaintenance": "Correctivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Cambio de pastillas de freno",
+          "typePart": "Frenos",
+          "description": "Cambiar las pastillas de freno si es necesario.",
+          "typeMaintenance": "Correctivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Cambio de aceite",
+          "typePart": "Motor",
+          "description": "Cambiar el aceite del motor y revisar el filtro.",
+          "typeMaintenance": "Correctivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Cambio de filtro de aire",
+          "typePart": "Motor",
+          "description": "Cambiar el filtro de aire del motor.",
+          "typeMaintenance": "Correctivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "M-02",
+      "status": "completada",
+      "workOrders": [
+        {
+          "id": 3,
+          "name": "Renovacion del soat",
+          "typePart": "Papeles",
+          "description": "Renovar el SOAT del vehiculo.",
+          "typeMaintenance": "Preventivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1511918984145-48de785d4c4e?auto=format&fit=crop&w=400&q=80"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Alineación",
+          "typePart": "Dirección",
+          "description": "Revisar y alinear la dirección.",
+          "typeMaintenance": "Correctivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8d9?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "M-03",
+      "status": "pendiente",
+      "workOrders": [
+        {
+          "id": 5,
+          "name": "Cambio de llantas",
+          "typePart": "Llantas",
+          "description": "Revisar y cambiar las llantas desgastadas.",
+          "typeMaintenance": "Correctivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "M-04",
+      "status": "completada",
+      "workOrders": [
+        {
+          "id": 6,
+          "name": "Revisión de luces",
+          "typePart": "Eléctrico",
+          "description": "Verificar el funcionamiento de todas las luces.",
+          "typeMaintenance": "Preventivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=400&q=80"
+          ]
+        },
+        {
+          "id": 7,
+          "name": "Cambio de batería",
+          "typePart": "Eléctrico",
+          "description": "Cambiar la batería si es necesario.",
+          "typeMaintenance": "Correctivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "M-05",
+      "status": "pendiente",
+      "workOrders": [
+        {
+          "id": 8,
+          "name": "Revisión de suspensión",
+          "typePart": "Suspensión",
+          "description": "Revisar el sistema de suspensión.",
+          "typeMaintenance": "Preventivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8d9?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "M-06",
+      "status": "completada",
+      "workOrders": [
+        {
+          "id": 9,
+          "name": "Cambio de filtro de aire",
+          "typePart": "Motor",
+          "description": "Cambiar el filtro de aire del motor.",
+          "typeMaintenance": "Correctivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "M-07",
+      "status": "pendiente",
+      "workOrders": [
+        {
+          "id": 10,
+          "name": "Revisión de frenos",
+          "typePart": "Frenos",
+          "description": "Verificar el estado de los frenos.",
+          "typeMaintenance": "Preventivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
+          ]
+        },
+        {
+          "id": 11,
+          "name": "Cambio de pastillas",
+          "typePart": "Frenos",
+          "description": "Cambiar las pastillas de freno si es necesario.",
+          "typeMaintenance": "Correctivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "M-08",
+      "status": "completada",
+      "workOrders": [
+        {
+          "id": 12,
+          "name": "Revisión de aire acondicionado",
+          "typePart": "Aire acondicionado",
+          "description": "Revisar el sistema de aire acondicionado.",
+          "typeMaintenance": "Preventivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8d9?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "M-09",
+      "status": "pendiente",
+      "workOrders": [
+        {
+          "id": 13,
+          "name": "Cambio de correa",
+          "typePart": "Motor",
+          "description": "Cambiar la correa de distribución.",
+          "typeMaintenance": "Correctivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "M-10",
+      "status": "completada",
+      "workOrders": [
+        {
+          "id": 14,
+          "name": "Revisión de sistema eléctrico",
+          "typePart": "Eléctrico",
+          "description": "Revisar el sistema eléctrico general.",
+          "typeMaintenance": "Preventivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "M-11",
+      "status": "pendiente",
+      "workOrders": [
+        {
+          "id": 15,
+          "name": "Cambio de bujías",
+          "typePart": "Motor",
+          "description": "Cambiar las bujías del motor.",
+          "typeMaintenance": "Correctivo",
+          "status": "pendiente",
+          "images": [
+            "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "M-12",
+      "status": "completada",
+      "workOrders": [
+        {
+          "id": 16,
+          "name": "Revisión de transmisión",
+          "typePart": "Transmisión",
+          "description": "Revisar el sistema de transmisión.",
+          "typeMaintenance": "Preventivo",
+          "status": "realizado",
+          "images": [
+            "https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8d9?auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+          ]
+        }
+      ]
+    }
   ]
 }

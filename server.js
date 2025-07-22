@@ -28,6 +28,32 @@ server.use(middlewares);
 // Middleware para parsear JSON
 server.use(jsonServer.bodyParser);
 
+// ==================== ENDPOINT DE LOGIN DE CLIENTES ====================
+server.post('/api/auth', (req, res) => {
+  const { email, password } = req.body;
+  const db = router.db;
+  // Buscar cliente por email (case insensitive)
+  const client = db.get('clientes').find(c => c.email && c.email.toLowerCase() === email.toLowerCase()).value();
+  if (client && client.password === password) {
+    const token = 'mock-token-' + Math.random().toString(36).substring(2, 18);
+    res.json({
+      success: true,
+      message: 'Login exitoso',
+      token,
+      client: {
+        id: client.id || client.client_id,
+        legal_representative: client.legal_representative,
+        email: client.email
+      }
+    });
+  } else {
+    res.status(401).json({
+      success: false,
+      message: 'Credenciales inválidas. Verifica email y contraseña.'
+    });
+  }
+});
+
 // ==================== ENDPOINTS BÁSICOS PARA HYDRANTS ====================
 
 // Endpoint: Obtener todos los hidrantes
@@ -209,6 +235,23 @@ server.patch('/api/emergencies/:id', (req, res) => {
 // ==================== ENDPOINTS BÁSICOS PARA DEPARTAMENTS ====================
 
 // ==================== ENDPOINTS BÁSICOS PARA requestRisk ====================
+// Obtener todas las solicitudes de riesgo por client_id
+server.get('/api/requestRisk/client/:client_id', (req, res) => {
+  const db = router.db;
+  const client_id = req.params.client_id;
+  // Filtrar usando función para evitar problemas de tipo o espacios
+  const requests = db.get('requestRisk')
+    .filter(r => r.client_id && r.client_id.toString().trim() === client_id.toString().trim())
+    .value();
+  res.status(200).json({
+    success: true,
+    data: requests,
+    total: requests.length,
+    message: requests.length > 0
+      ? 'Solicitudes de riesgo para el cliente obtenidas exitosamente'
+      : 'No existen solicitudes de riesgo para el cliente'
+  });
+});
 
 // Obtener todas las solicitudes de riesgo
 server.get('/api/requestRisk', (req, res) => {
@@ -849,58 +892,83 @@ server.patch('/api/zoneTypes/:id', (req, res) => {
   });
 });
 
-// Endpoint de información de la API
-server.get('/api/info', (req, res) => {
+// ==================== ENDPOINTS BÁSICOS PARA MACHINES ====================
+
+// Obtener todas las máquinas
+server.get('/api/machines', (req, res) => {
+  const db = router.db;
+  const machines = db.get('machines').value();
   res.json({
     success: true,
-    data: {
-      nombre: 'API Sistema de Bomberos - Hydrants & Emergencies',
-      version: '1.0.0',
-      descripcion: 'API básica para gestión de hidrantes y emergencias',
-      endpoints: [
-        'GET /api/hydrants - Obtener todos los hidrantes',
-        'GET /api/hydrants/:id - Obtener hidrante por ID',
-        'PUT /api/hydrants/:id - Actualizar hidrante completo',
-        'PATCH /api/hydrants/:id - Editar hidrante parcialmente',
-        'GET /api/emergencies - Obtener todas las emergencias',
-        'GET /api/emergencies/:id - Obtener emergencia por ID',
-        'PUT /api/emergencies/:id - Actualizar emergencia completa',
-        'PATCH /api/emergencies/:id - Editar emergencia parcialmente',
-        'GET /api/departaments - Obtener todos los departamentos',
-        'GET /api/departaments/:id - Obtener departamento por ID',
-        'PUT /api/departaments/:id - Actualizar departamento completo',
-        'PATCH /api/departaments/:id - Editar departamento parcialmente',
-        'GET /api/emergency - Obtener objeto emergency único',
-        'GET /api/municipalities - Obtener todos los municipios',
-        'GET /api/municipalities/:id - Obtener municipio por ID',
-        'PUT /api/municipalities/:id - Actualizar municipio completo',
-        'PATCH /api/municipalities/:id - Editar municipio parcialmente',
-        'GET /api/unitTerritorials - Obtener todas las unidades territoriales',
-        'GET /api/unitTerritorials/:id - Obtener unidad territorial por ID',
-        'PUT /api/unitTerritorials/:id - Actualizar unidad territorial completa',
-        'PATCH /api/unitTerritorials/:id - Editar unidad territorial parcialmente',
-        'GET /api/unitTypes - Obtener todos los tipos de unidad',
-        'GET /api/unitTypes/:id - Obtener tipo de unidad por ID',
-        'PUT /api/unitTypes/:id - Actualizar tipo de unidad completo',
-        'PATCH /api/unitTypes/:id - Editar tipo de unidad parcialmente',
-        'GET /api/sectores - Obtener todos los sectores',
-        'GET /api/sectores/:id - Obtener sector por ID',
-        'PUT /api/sectores/:id - Actualizar sector completo',
-        'PATCH /api/sectores/:id - Editar sector parcialmente',
-        'GET /api/sectorTypes - Obtener todos los tipos de sector',
-        'GET /api/sectorTypes/:id - Obtener tipo de sector por ID',
-        'PUT /api/sectorTypes/:id - Actualizar tipo de sector completo',
-        'PATCH /api/sectorTypes/:id - Editar tipo de sector parcialmente',
-        'GET /api/zoneTypes - Obtener todos los tipos de zona',
-        'GET /api/zoneTypes/:id - Obtener tipo de zona por ID',
-        'PUT /api/zoneTypes/:id - Actualizar tipo de zona completo',
-        'PATCH /api/zoneTypes/:id - Editar tipo de zona parcialmente'
-      ]
-    },
-    message: 'API funcionando correctamente'
+    data: machines,
+    total: machines.length,
+    message: 'Máquinas obtenidas exitosamente'
   });
 });
 
+// Obtener máquina por ID
+server.get('/api/machines/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const machine = db.get('machines').find({ id }).value();
+  if (!machine) {
+    return res.status(404).json({
+      success: false,
+      message: 'Máquina no encontrada'
+    });
+  }
+  res.json({
+    success: true,
+    data: machine,
+    message: 'Máquina encontrada exitosamente'
+  });
+});
+
+// Actualizar máquina completa (PUT)
+server.put('/api/machines/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const machine = db.get('machines').find({ id }).value();
+  if (!machine) {
+    return res.status(404).json({
+      success: false,
+      message: 'Máquina no encontrada'
+    });
+  }
+  const updatedMachine = db.get('machines')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedMachine,
+    message: 'Máquina actualizada exitosamente'
+  });
+});
+
+// Editar máquina parcialmente (PATCH)
+server.patch('/api/machines/:id', (req, res) => {
+  const db = router.db;
+  const id = parseInt(req.params.id);
+  const updates = req.body;
+  const machine = db.get('machines').find({ id }).value();
+  if (!machine) {
+    return res.status(404).json({
+      success: false,
+      message: 'Máquina no encontrada'
+    });
+  }
+  const updatedMachine = db.get('machines')
+    .find({ id })
+    .assign(updates)
+    .write();
+  res.json({
+    success: true,
+    data: updatedMachine,
+    message: 'Máquina editada exitosamente'
+  });
+});
 // Usar el router de json-server para endpoints adicionales (opcional)
 server.use('/hydrants', router);
 server.use('/emergencies', router);
@@ -916,68 +984,7 @@ server.use((err, req, res, next) => {
 
 // Iniciar servidor
 server.listen(PORT, () => {
-  console.log('🚒 ===============================================');
-  console.log('   API SISTEMA DE BOMBEROS - HYDRANTS & EMERGENCIES');
-  console.log('🚒 ===============================================');
   console.log(`🌐 Servidor corriendo en: http://localhost:${PORT}`);
-  console.log('');
-  console.log('📋 Endpoints de Hidrantes:');
-  console.log(`   GET    http://localhost:${PORT}/api/hydrants`);
-  console.log(`   GET    http://localhost:${PORT}/api/hydrants/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/hydrants/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/hydrants/:id`);
-  console.log('');
-  console.log('🚨 Endpoints de Emergencias:');
-  console.log(`   GET    http://localhost:${PORT}/api/emergencies`);
-  console.log(`   GET    http://localhost:${PORT}/api/emergencies/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/emergencies/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/emergencies/:id`);
-  console.log('');
-  console.log('🏢 Endpoints de Departamentos:');
-  console.log(`   GET    http://localhost:${PORT}/api/departaments`);
-  console.log(`   GET    http://localhost:${PORT}/api/departaments/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/departaments/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/departaments/:id`);
-  console.log('');
-  console.log('📍 Endpoints de Municipios:');
-  console.log(`   GET    http://localhost:${PORT}/api/municipalities`);
-  console.log(`   GET    http://localhost:${PORT}/api/municipalities/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/municipalities/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/municipalities/:id`);
-  console.log('');
-  console.log('📍 Endpoints de Unidades Territoriales:');
-  console.log(`   GET    http://localhost:${PORT}/api/unitTerritorials`);
-  console.log(`   GET    http://localhost:${PORT}/api/unitTerritorials/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/unitTerritorials/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/unitTerritorials/:id`);
-  console.log('');
-  console.log('📦 Endpoints de Tipos de Unidad:');
-  console.log(`   GET    http://localhost:${PORT}/api/unitTypes`);
-  console.log(`   GET    http://localhost:${PORT}/api/unitTypes/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/unitTypes/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/unitTypes/:id`);
-  console.log('');
-  console.log('🏷️ Endpoints de Sectores:');
-  console.log(`   GET    http://localhost:${PORT}/api/sectores`);
-  console.log(`   GET    http://localhost:${PORT}/api/sectores/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/sectores/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/sectores/:id`);
-  console.log('');
-  console.log('🏷️ Endpoints de Tipos de Sector:');
-  console.log(`   GET    http://localhost:${PORT}/api/sectorTypes`);
-  console.log(`   GET    http://localhost:${PORT}/api/sectorTypes/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/sectorTypes/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/sectorTypes/:id`);
-  console.log('');
-  console.log('🗺️ Endpoints de Tipos de Zona:');
-  console.log(`   GET    http://localhost:${PORT}/api/zoneTypes`);
-  console.log(`   GET    http://localhost:${PORT}/api/zoneTypes/:id`);
-  console.log(`   PUT    http://localhost:${PORT}/api/zoneTypes/:id`);
-  console.log(`   PATCH  http://localhost:${PORT}/api/zoneTypes/:id`);
-  console.log('');
-  console.log('📖 Documentación: http://localhost:' + PORT + '/api/info');
-  console.log('🔥 Presiona Ctrl+C para detener el servidor');
-  console.log('===============================================');
 });
 
 module.exports = server;
