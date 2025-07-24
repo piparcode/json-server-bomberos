@@ -1292,6 +1292,16 @@
   ],
   "requestRisk": [
     {
+      "id": "2",
+      "type_request": "inspección de seguridad humana",
+      "module": "ingenieria",
+      "statusPay": "pago completado",
+      "date_request": "2025-06-10",
+      "client_id": "cbbf",
+      "legal_representative": "Juan Pérez",
+      "price": 160000
+    },
+    {
       "id": "3",
       "type_request": "inspección de seguridad humana",
       "module": "ingenieria",
