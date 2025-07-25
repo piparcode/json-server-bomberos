@@ -1295,7 +1295,7 @@
       "id": "2",
       "type_request": "inspección de seguridad humana",
       "module": "ingenieria",
-      "statusPay": "pago completado",
+      "statusPay": "pagado",
       "date_request": "2025-06-10",
       "client_id": "cbbf",
       "legal_representative": "Juan Pérez",
