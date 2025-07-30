@@ -1299,7 +1299,8 @@
       "date_request": "2025-06-10",
       "client_id": "cbbf",
       "legal_representative": "Juan Pérez",
-      "price": 160000
+      "price": 160000,
+      "responsible": "Ing. Camilo Torres"
     },
     {
       "id": "3",
@@ -1309,7 +1310,8 @@
       "date_request": "2024-06-10",
       "client_id": "cbbf",
       "legal_representative": "Juan Pérez",
-      "price": 150000
+      "price": 150000,
+      "responsible": "Ing. Camilo Torres"
     },
     {
       "id": "4",
