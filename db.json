@@ -181,7 +181,8 @@
       "address": "calle 15 #23-45, centro",
       "form_number": "inc-2024-001",
       "assignedMachine": "m-01",
-      "operator": "maría garcía"
+      "operator": "maría garcía",
+      "isInvestigation": true
     },
     {
       "id": "2",
@@ -202,7 +203,8 @@
       "address": "carrera 8 #12-34, norte",
       "form_number": "amb-2024-001",
       "assignedMachine": "m-02",
-      "operator": "carlos lópez"
+      "operator": "carlos lópez",
+      "isInvestigation": false
     },
     {
       "id": "3",
@@ -223,7 +225,8 @@
       "address": "calle 20 #45-67, centro",
       "form_number": "inc-2024-002",
       "assignedMachine": null,
-      "operator": "maría garcía"
+      "operator": "maría garcía",
+      "isInvestigation": true
     },
     {
       "id": "4",
@@ -244,7 +247,8 @@
       "address": "carrera 15 #78-90, norte",
       "form_number": "apo-2024-001",
       "assignedMachine": null,
-      "operator": "carlos lópez"
+      "operator": "carlos lópez",
+      "isInvestigation": true
     },
     {
       "id": "5",
@@ -265,7 +269,8 @@
       "address": "vereda la esperanza, zona rural",
       "form_number": "inc-2024-003",
       "assignedMachine": "m-03",
-      "operator": "maría garcía"
+      "operator": "maría garcía",
+      "isInvestigation": false
     },
     {
       "id": "6",
@@ -286,7 +291,8 @@
       "address": "parque central, centro",
       "form_number": "amb-2024-002",
       "assignedMachine": "m-02",
-      "operator": "carlos lópez"
+      "operator": "carlos lópez",
+      "isInvestigation": false
     }
   ],
   "departaments": [
